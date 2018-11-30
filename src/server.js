@@ -22,7 +22,9 @@ class App {
       express: this.express,
       autoescape: true
     })
-    this.express.set('view engine', 'nunjucks')
+
+    this.express.use(express.static(path.resolve(__dirname, 'public')))
+    this.express.set('view engine', 'njk')
   }
 
   routes () {
