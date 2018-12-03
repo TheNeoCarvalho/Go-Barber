@@ -3,6 +3,8 @@
 <form action="/sigin" method="post">
     <img src="/images/logo.svg" height="42" />
 
+  {% include "_partials/flash.njk" %}
+
   <input type="email" name="email" placeholder="seu@email.com" />
   <input type="password" name="pass" placeholder="sua senha" />
 
