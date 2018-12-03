@@ -1,0 +1,38 @@
+{% extends "_layouts/default.njk" %}
+
+
+{% block body %}
+<div class="content">
+    <strong>Agendamento de Horários</strong>
+    <div class="provider">
+        <div>
+            <img src="/files/{{ provider.avatar}}"/>
+            <strong>{{ provider.name }}</strong>
+        </div>
+    </div>
+
+    <form action="/app/appointments/new/{{ orivider.id }}" method="post">
+        <input type="text"class="flatpickr" placeholder="Ecolha a data">
+
+    <div id="hours">
+        <label>
+            <input type="radio">12:00
+        </label>
+          <label>
+            <input type="radio">13:00
+        </label>
+          <label>
+            <input type="radio">14:00
+        </label>
+        <button type="submit" class="">Agendar</button>
+    </div>
+    </form>
+
+</div>
+<script>
+    flatpickr('.flatpickr', {
+        minDate: new Date(),
+        dateFormat: 'd/m/Y'
+    })
+</script>
+{% endblock %}
