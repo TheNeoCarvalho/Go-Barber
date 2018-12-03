@@ -1,10 +1,13 @@
 const express = require('express')
+const multerConfig = require('./config/multer')
+const upload = require('multer')(multerConfig)
 
 const routes = express.Router()
 
 const UserController = require('./app/controllers/UserController')
 
-routes.get('/', (req, res) => res.render('auth/signup'))
-routes.get('/signup', (req, res) => UserController.create)
+routes.get('/', (req, res) => res.send('login'))
+routes.get('/signup', UserController.create)
+routes.post('/signup', upload.single('avatar'), UserController.store)
 
 module.exports = routes
